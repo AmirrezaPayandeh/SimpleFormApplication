@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "DeleteAllUsers";
+}
+
+<h1>Delete All Users</h1>
+
+<h3>Are you sure you want to delete all users?</h3>
+<div>
+    <form asp-action="DeleteAllUsers">
+        <input type="submit" value="Delete All" class="btn btn-danger" /> |
+        <a asp-action="ListUsers">Back to List</a>
+    </form>
+</div>

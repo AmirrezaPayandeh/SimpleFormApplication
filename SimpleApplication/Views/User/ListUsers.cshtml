@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SimpleApplication.ViewModels.UserInfoViewModel>
+
+@{
+    ViewData["Title"] = "ListUsers";
+}
+
+<h1>Users List</h1>
+
+<p>
+    <a asp-action="Register">Create New User</a> |
+    <a asp-action="DeleteAllUsers">Delete All Users</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyName)
+            </th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+@{ 
+    int i = 0;
+}
+@foreach (var item in Model) {
+    i++;
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit User", "EditUser", new { id = item.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete User", "DeleteUser", new { id = item.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Show Details", "UserDetails", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
